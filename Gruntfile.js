@@ -57,12 +57,16 @@ module.exports = function(grunt) {
       }
     },
     version: {
-      options: {
-        file: 'lib/scripts.php',
-        css: 'assets/css/main.min.css',
-        cssHandle: 'roots_main',
-        js: 'assets/js/scripts.min.js',
-        jsHandle: 'roots_scripts'
+      assets: {
+        options: {
+          querystring: {
+            cssHandle: 'roots_main',
+            jsHandle: 'roots_scripts'
+          }
+        },
+        src: ['assets/css/main.min.css',
+              'assets/js/scripts.min.js'],
+        dest: 'lib/scripts.php'
       }
     },
     watch: {
@@ -107,7 +111,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-wp-version');
+  grunt.loadNpmTasks('grunt-wp-assets');
 
   // Register tasks
   grunt.registerTask('default', [
