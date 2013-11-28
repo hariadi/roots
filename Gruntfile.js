@@ -33,18 +33,18 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/js/scripts.min.js': [
-            'assets/js/plugins/bootstrap/transition.js',
-            'assets/js/plugins/bootstrap/alert.js',
-            'assets/js/plugins/bootstrap/button.js',
-            'assets/js/plugins/bootstrap/carousel.js',
-            'assets/js/plugins/bootstrap/collapse.js',
-            'assets/js/plugins/bootstrap/dropdown.js',
-            'assets/js/plugins/bootstrap/modal.js',
-            'assets/js/plugins/bootstrap/tooltip.js',
-            'assets/js/plugins/bootstrap/popover.js',
-            'assets/js/plugins/bootstrap/scrollspy.js',
-            'assets/js/plugins/bootstrap/tab.js',
-            'assets/js/plugins/bootstrap/affix.js',
+            'vendor/bootstrap/js/transition.js',
+            'vendor/bootstrap/js/alert.js',
+            'vendor/bootstrap/js/button.js',
+            'vendor/bootstrap/js/carousel.js',
+            'vendor/bootstrap/js/collapse.js',
+            'vendor/bootstrap/js/dropdown.js',
+            'vendor/bootstrap/js/modal.js',
+            'vendor/bootstrap/js/tooltip.js',
+            'vendor/bootstrap/js/popover.js',
+            'vendor/bootstrap/js/scrollspy.js',
+            'vendor/bootstrap/js/tab.js',
+            'vendor/bootstrap/js/affix.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
       less: {
         files: [
           'assets/less/*.less',
-          'assets/less/bootstrap/*.less'
+          'vendor/bootstrap/less/*.less'
         ],
         tasks: ['less', 'version']
       },
@@ -105,6 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-wp-assets');
 
   // Register tasks
