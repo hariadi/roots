@@ -2,6 +2,13 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+
+    vendor: grunt.file.readJSON('.bowerrc').directory,
+    bootstrap: {
+      less: '<%= vendor %>/bootstrap/less',
+      js: '<%= vendor %>/bootstrap/js',
+    },
+
     jshint: {
       options: {
         jshintrc: '.jshintrc'
@@ -33,18 +40,18 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'assets/js/scripts.min.js': [
-            'vendor/bootstrap/js/transition.js',
-            'vendor/bootstrap/js/alert.js',
-            'vendor/bootstrap/js/button.js',
-            'vendor/bootstrap/js/carousel.js',
-            'vendor/bootstrap/js/collapse.js',
-            'vendor/bootstrap/js/dropdown.js',
-            'vendor/bootstrap/js/modal.js',
-            'vendor/bootstrap/js/tooltip.js',
-            'vendor/bootstrap/js/popover.js',
-            'vendor/bootstrap/js/scrollspy.js',
-            'vendor/bootstrap/js/tab.js',
-            'vendor/bootstrap/js/affix.js',
+            '<%= bootstrap.js %>/transition.js',
+            '<%= bootstrap.js %>/alert.js',
+            '<%= bootstrap.js %>/button.js',
+            '<%= bootstrap.js %>/carousel.js',
+            '<%= bootstrap.js %>/collapse.js',
+            '<%= bootstrap.js %>/dropdown.js',
+            '<%= bootstrap.js %>/modal.js',
+            '<%= bootstrap.js %>/tooltip.js',
+            '<%= bootstrap.js %>/popover.js',
+            '<%= bootstrap.js %>/scrollspy.js',
+            '<%= bootstrap.js %>/tab.js',
+            '<%= bootstrap.js %>/affix.js',
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
           ]
@@ -67,7 +74,7 @@ module.exports = function(grunt) {
       less: {
         files: [
           'assets/less/*.less',
-          'vendor/bootstrap/less/*.less'
+          '<%= bootstrap.less %>/*.less'
         ],
         tasks: ['less', 'version']
       },
