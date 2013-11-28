@@ -1,0 +1,26 @@
+{
+  "name": "roots",
+  "version": "6.5.1",
+  "homepage": "http://roots.io",
+  "authors": [
+    "Ben Word <ben@benword.com>"
+  ],
+  "description": "Roots is a WordPress starter theme based on HTML5 Boilerplate & Bootstrap.",
+  "main": "Gruntfile.js",
+  "keywords": [
+    "roots"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.2",
+    "modernizr": "~2.7.0"
+  }
+}
