@@ -58,12 +58,6 @@ module.exports = function(grunt) {
     },
     version: {
       assets: {
-        options: {
-          querystring: {
-            cssHandle: 'roots_main',
-            jsHandle: 'roots_scripts'
-          }
-        },
         src: ['assets/css/main.min.css',
               'assets/js/scripts.min.js'],
         dest: 'lib/scripts.php'
