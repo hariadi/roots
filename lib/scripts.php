@@ -17,14 +17,16 @@
 function roots_scripts() {
   /**
    * The build task in Grunt renames production assets with a hash
-   * Read the asset names from assets-manifest.json
+   * Read the asset names from manifest.json
    */
   if (!(WP_ENV === 'development')) {
-    $get_assets = file_get_contents(get_template_directory_uri() . '/assets/manifest.json');
-    $assets     = json_decode($get_assets, true);
+    $manifest   = file_get_contents(get_template_directory_uri() . '/assets/manifest.json');
+    $assets     = json_decode($manifest, true);
+    $css        = 'assets/css/main.min.css';
+    $js         = 'assets/js/scripts.min.js';
     $assets     = array(
-      'css'       => '/assets/css/main.min.css' . '?' . $assets['assets/css/main.min.css']['hash'],
-      'js'        => '/assets/js/scripts.min.js' . '?' . $assets['assets/js/scripts.min.js']['hash'],
+      'css'       => '/' . ($assets['querystring'] ? $css . '?' . $assets[$css]['hash'] : $assets[$css]['path']),
+      'js'        => '/' . ($assets['querystring'] ? $js . '?' . $assets[$js]['hash'] : $assets[$js]['path']),
       'modernizr' => '/assets/js/vendor/modernizr.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'
     );

@@ -119,6 +119,15 @@ module.exports = function(grunt) {
         files: {
           'lib/scripts.php': 'assets/{css,js}/{main,scripts}.min.{css,js}'
         }
+      },
+      filerev: {
+        options: {
+          summaryOnly: true,
+          manifest: 'assets/manifest.json',
+        },
+        files: {
+          'lib/scripts.php': 'assets/{css,js}/{main,scripts}.min.{css,js}'
+        }
       }
     },
     watch: {
@@ -161,12 +170,16 @@ module.exports = function(grunt) {
     'autoprefixer:dev',
     'concat'
   ]);
-  grunt.registerTask('build', [
-    'jshint',
-    'less:build',
-    'autoprefixer:build',
-    'uglify',
-    'modernizr',
-    'version'
-  ]);
+  grunt.registerTask('build', function(version) {
+    // Make sure we have only two options
+    version = (version === 'filerev') ? 'filerev' : 'default';
+    grunt.task.run([
+      'jshint',
+      'less:build',
+      'autoprefixer:build',
+      'uglify',
+      'modernizr',
+      'version:' + version
+    ]);
+  });
 };
