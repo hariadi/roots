@@ -19,7 +19,7 @@ function roots_scripts() {
    * The build task in Grunt renames production assets with a hash
    * Read the asset names from manifest.json
    */
-  if (!(WP_ENV === 'development')) {
+  if (!(WP_ENV === 'development') && (file_exists(TEMPLATEPATH . '/assets/manifest.json'))) {
     $manifest   = file_get_contents(get_template_directory_uri() . '/assets/manifest.json');
     $assets     = json_decode($manifest, true);
     $css        = 'assets/css/main.min.css';
